@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+      <div class="container">
+        <div class="child">
+            <div  onclick="clearDisp(event)" class="block1 operator" ><p>C</p></div>
+            <div id="block2"></div> 
+        </div>
+
+        <div class="child">
+            <div onclick="getValue(event)"  class="block"><p>7</p></div>
+            <div onclick="getValue(event)"  class="block"><p>8</p></div>
+            <div onclick="getValue(event)"  class="block"><p>9</p></div>
+            <div onclick="getValue(event)"  class="block operator"><p>*</p></div>
+        </div>
+
+        <div class="child">
+            <div onclick="getValue(event)"  class="block"><p>4</p></div>
+            <div onclick="getValue(event)"  class="block"><p>5</p></div>
+            <div onclick="getValue(event)"  class="block"><p>6</p></div>
+            <div onclick="getValue(event)"  class="block operator"><p>%</p></div>
+        </div>
+
+        <div class="child">
+            <div onclick="getValue(event)"  class="block"><p>1</p></div>
+            <div onclick="getValue(event)"  class="block"><p>2</p></div>
+            <div onclick="getValue(event)"  class="block"><p>3</p></div>
+            <div onclick="getValue(event)"  class="block operator"><p>+</p></div>
+        </div>
+
+        <div class="child">
+            <div onclick="getValue(event)"  class="block"><p>0</p></div>
+            <div onclick="value(event)" class="block equal" id="block3"><p>=</p></div>
+            <div onclick="getValue(event)"  class="block operator"><p>-</p></div>
+            <div onclick="getValue(event)"  class="block"><p>.</p></div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+        var currentValue
+        function getValue(event) {
+            currentValue=event.target.innerText
+            // console.log(currentValue)
+            const display=document.getElementById("block2")
+            // console.log(display);
+            display.innerText+=currentValue
+            currentValue=display.innerText
+            console.log(currentValue);
+            
+        }
+        
+        function value(event) {
+            currentValue=eval(currentValue)
+            const display=document.getElementById("block2") 
+           
+            display.innerText=""
+            console.log(currentValue);
+            display.innerText=currentValue
+        }
+
+        function clearDisp(event) {
+            const display = document.getElementById("block2")
+            display.innerText =""
+        }
+
+
+    </script>
+</body>
+</html>
